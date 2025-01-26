@@ -1,0 +1,56 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { getCollection } from "astro:content";
+import { getPostsTopics } from "@/libs/util/posts";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("writings");
+
+    return getPostsTopics(posts).map((topic) => ({
+        params: { topic },
+        props: {
+            topicPosts: posts
+                .filter(({ data: { topics } }) => topics?.includes(topic))
+                .sort(
+                    (a, b) =>
+                        b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+                ),
+        },
+    }));
+}
+
+const { topic } = Astro.params;
+const { topicPosts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <section>
+                <h2>{topic} {">"} Writings</h2>
+                <ul>
+                    {
+                        topicPosts.map((post) => (
+                            <li>
+                                <a href={`/writings/${post.id}`}>
+                                    <FormattedDate date={post.data.pubDate} />{" "}
+                                    {post.data.title}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </section>
+        </main>
+        <Footer />
+    </body>
+</html>

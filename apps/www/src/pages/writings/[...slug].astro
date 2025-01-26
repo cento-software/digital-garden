@@ -1,0 +1,89 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "@/layouts/BlogPost.astro";
+import { render } from "astro:content";
+import { parseHTML } from "linkedom";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+export async function getStaticPaths() {
+	const isRelativeUrl = (url: string) =>
+		url.indexOf("http://") === 0 || url.indexOf("https://") === 0;
+
+	const posts = await getCollection("writings");
+
+	const postsWithRelativeLinks = posts.map((post) => {
+		const { document } = parseHTML(post.rendered?.html);
+
+		const relativeLinks = [...document.querySelectorAll("a")].filter(
+			(anchor) => !isRelativeUrl(anchor.href),
+		);
+
+		return { ...post, relativeLinks };
+	});
+
+	return postsWithRelativeLinks.map((post) => {
+		return {
+			params: { slug: post.id },
+			props: {
+				post,
+				relatedPosts: posts.filter(
+					({ id, data: { topics } }) =>
+						id !== post.id &&
+						post.data.topics?.some((topic) =>
+							topics?.includes(topic),
+						),
+				),
+				linkedMentions: postsWithRelativeLinks.filter(
+					({ id, relativeLinks }) =>
+						id !== post.id &&
+						relativeLinks.some(
+							(relativeLink) => relativeLink.href === post.id,
+						),
+				),
+			},
+		};
+	});
+}
+type Props = {
+	post: CollectionEntry<"writings">;
+	relatedPosts: CollectionEntry<"writings">[];
+	linkedMentions: CollectionEntry<"writings">[];
+};
+
+const { post, relatedPosts, linkedMentions } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPost {...post.data}>
+	<Content />
+	{
+		linkedMentions.length > 0 && (
+			<section>
+				<h3>Linked mentions</h3>
+				{linkedMentions.map((post) => (
+					<li>
+						<a href={`/writings/${post.id}`}>
+							<FormattedDate date={post.data.pubDate} />{" "}
+							{post.data.title}
+						</a>
+					</li>
+				))}
+			</section>
+		)
+	}
+	{
+		relatedPosts.length > 0 && (
+			<section>
+				<h3>Related</h3>
+				{relatedPosts.map((post) => (
+					<li>
+						<a href={`/writings/${post.id}`}>
+							<FormattedDate date={post.data.pubDate} />{" "}
+							{post.data.title}
+						</a>
+					</li>
+				))}
+			</section>
+		)
+	}
+</BlogPost>

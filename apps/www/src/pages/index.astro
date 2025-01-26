@@ -1,0 +1,65 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { getCollection } from "astro:content";
+import { getPostsTopics } from "@/libs/util/posts";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+const posts = await getCollection("writings");
+
+const topics = getPostsTopics(posts);
+
+const sortedPosts = posts.sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<h2><a href={`/writings/${sortedPosts[0].id}`}>Last</a></h2>
+				<article>
+					<h3>{sortedPosts[0].data.title}</h3>
+					<p>{sortedPosts[0].data.description}</p>
+				</article>
+			</section>
+
+			<section>
+				<h2><a href="/topics">Topics</a></h2>
+				{
+					topics.map((topic, i, { length }) => (
+						<>
+							<a href={`/topics/${topic}`}>{topic}</a>
+							{i < length - 1 && ", "}
+						</>
+					))
+				}
+			</section>
+
+			<section>
+				<h2><a href="/writings">Writings</a></h2>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/writings/${post.id}`}>
+									<FormattedDate date={post.data.pubDate} />{" "}
+									{post.data.title}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
