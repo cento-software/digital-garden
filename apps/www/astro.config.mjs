@@ -6,11 +6,10 @@ import wikiLinkPlugin from "@braindb/remark-wiki-link";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://cento.software',
+	base: "digital-garden",
 	markdown: {
-		remarkPlugins: [[wikiLinkPlugin, {
-			
-		}]]
+		remarkPlugins: [wikiLinkPlugin]
 	},
 	integrations: [mdx(), sitemap()],
 });

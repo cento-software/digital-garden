@@ -25,7 +25,12 @@ const sortedPosts = posts.sort(
 		<Header />
 		<main>
 			<section>
-				<h2><a href={`/writings/${sortedPosts[0].id}`}>Last</a></h2>
+				<h2>
+					<a
+						href={`${import.meta.env.BASE_URL}/writings/${sortedPosts[0].id}`}
+						>Last</a
+					>
+				</h2>
 				<article>
 					<h3>{sortedPosts[0].data.title}</h3>
 					<p>{sortedPosts[0].data.description}</p>
@@ -33,11 +38,17 @@ const sortedPosts = posts.sort(
 			</section>
 
 			<section>
-				<h2><a href="/topics">Topics</a></h2>
+				<h2>
+					<a href={`${import.meta.env.BASE_URL}/topics`}>Topics</a>
+				</h2>
 				{
 					topics.map((topic, i, { length }) => (
 						<>
-							<a href={`/topics/${topic}`}>{topic}</a>
+							<a
+								href={`${import.meta.env.BASE_URL}/topics/${topic}`}
+							>
+								{topic}
+							</a>
 							{i < length - 1 && ", "}
 						</>
 					))
@@ -45,12 +56,17 @@ const sortedPosts = posts.sort(
 			</section>
 
 			<section>
-				<h2><a href="/writings">Writings</a></h2>
+				<h2>
+					<a href={`${import.meta.env.BASE_URL}/writings`}>Writings</a
+					>
+				</h2>
 				<ul>
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/writings/${post.id}`}>
+								<a
+									href={`${import.meta.env.BASE_URL}/writings/${post.id}`}
+								>
 									<FormattedDate date={post.data.pubDate} />{" "}
 									{post.data.title}
 								</a>

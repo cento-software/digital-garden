@@ -30,7 +30,11 @@ const topics = [
                 {
                     topics.map((topic, i, { length }) => (
                         <>
-                            <a href={`/topics/${topic}`}>{topic}</a>
+                            <a
+                                href={`${import.meta.env.BASE_URL}/topics/${topic}`}
+                            >
+                                {topic}
+                            </a>
                             {i < length - 1 && ", "}
                         </>
                     ))

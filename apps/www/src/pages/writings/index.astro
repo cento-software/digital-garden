@@ -25,7 +25,9 @@ const posts = (await getCollection("writings")).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/writings/${post.id}`}>
+								<a
+									href={`${import.meta.env.BASE_URL}/writings/${post.id}`}
+								>
 									<FormattedDate date={post.data.pubDate} />{" "}
 									{post.data.title}
 								</a>

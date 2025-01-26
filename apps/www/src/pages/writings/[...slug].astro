@@ -62,7 +62,9 @@ const { Content } = await render(post);
 				<h3>Linked mentions</h3>
 				{linkedMentions.map((post) => (
 					<li>
-						<a href={`/writings/${post.id}`}>
+						<a
+							href={`${import.meta.env.BASE_URL}/writings/${post.id}`}
+						>
 							<FormattedDate date={post.data.pubDate} />{" "}
 							{post.data.title}
 						</a>
@@ -77,7 +79,9 @@ const { Content } = await render(post);
 				<h3>Related</h3>
 				{relatedPosts.map((post) => (
 					<li>
-						<a href={`/writings/${post.id}`}>
+						<a
+							href={`${import.meta.env.BASE_URL}/writings/${post.id}`}
+						>
 							<FormattedDate date={post.data.pubDate} />{" "}
 							{post.data.title}
 						</a>
