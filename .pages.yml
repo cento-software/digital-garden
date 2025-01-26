@@ -1,2 +1,3 @@
 media:
   input: apps/www/public
+  output: apps/www/public
