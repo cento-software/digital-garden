@@ -28,6 +28,12 @@ content:
       - name: heroImage
         label: Hero image
         type: image
+        options:
+          path: apps/www/public
+          extensions:
+            - jpg
+            - jpeg
+            - png
       - name: topics
         label: Topics
         list: true
