@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.1.7"><link rel="canonical" href="https://example.com/writings/using-mdx/"><title>Using MDX</title><meta name="title" content="Using MDX"><meta name="description" content="Lorem ipsum dolor sit amet"><meta property="og:type" content="website"><meta property="og:url" content="https://example.com/writings/using-mdx/"><meta property="og:title" content="Using MDX"><meta property="og:description" content="Lorem ipsum dolor sit amet"><meta property="og:image" content="https://example.com/blog-placeholder-1.jpg"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://example.com/writings/using-mdx/"><meta property="twitter:title" content="Using MDX"><meta property="twitter:description" content="Lorem ipsum dolor sit amet"><meta property="twitter:image" content="https://example.com/blog-placeholder-1.jpg"><style>a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}
+</style></head> <body> <header> <nav> <h1><a href="/">Cento Software</a></h1> <ul> <li><a href="/" data-astro-cid-eimmu3lg> Home </a> </li> <li><a href="/writings" class="active" data-astro-cid-eimmu3lg> Writings </a> </li> <li><a href="/about" data-astro-cid-eimmu3lg> About </a> </li> </ul> </nav> </header> <main> <article> <div class="hero-image"> <img width="1020" height="510" src="/blog-placeholder-5.jpg" alt=""> </div> <div class="prose"> <div class="title"> <div class="date"> <time datetime="2024-06-01T04:00:00.000Z"> 01/06/2024 </time>  </div> <h1>Using MDX</h1> <hr> </div>  <p>This theme comes with the <a href="https://docs.astro.build/en/guides/integrations-guide/mdx/">@astrojs/mdx</a> integration installed and configured in your <code>astro.config.mjs</code> config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.</p>
+<h2 id="why-mdx">Why MDX?</h2>
+<p>MDX is a special flavor of Markdown that supports embedded JavaScript &amp; JSX syntax. This unlocks the ability to <a href="https://docs.astro.build/en/guides/markdown-content/#mdx-features">mix JavaScript and UI Components into your Markdown content</a> for things like interactive charts or alerts.</p>
+<p>If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.</p>
+<h2 id="example">Example</h2>
+<p>Here is how you import and use a UI component inside of MDX.<br/>
+When you open this page in the browser, you should see the clickable button below.</p>
+
+<a href="#" onclick="alert('clicked!')" data-astro-cid-eimmu3lg> <p>Embedded component in MDX</p> </a> 
+<h2 id="more-links">More Links</h2>
+<ul>
+<li><a href="https://mdxjs.com/docs/what-is-mdx">MDX Syntax Documentation</a></li>
+<li><a href="https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages">Astro Usage Documentation</a></li>
+<li><strong>Note:</strong> <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives">Client Directives</a> are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default.</li>
+</ul>  </div> </article> </main> <footer>
+&copy; 2025 Cento Software. All rights reserved.
+</footer> </body></html>
