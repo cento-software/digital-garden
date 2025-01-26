@@ -36,7 +36,7 @@ const { topicPosts } = Astro.props;
         <Header />
         <main>
             <section>
-                <h2>{topic} {">"} Writings</h2>
+                <h2>Topics {">"} {topic}</h2>
                 <ul>
                     {
                         topicPosts.map((post) => (
