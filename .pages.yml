@@ -24,13 +24,14 @@ content:
         type: string
       - name: pubDate
         label: Publication date
-        type: string
+        type: date
       - name: heroImage
         label: Hero image
-        type: string
+        type: image
       - name: topics
         label: Topics
-        type: array
+        list: true
+        type: string
       - name: body
         label: Body
         type: rich-text
