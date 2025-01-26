@@ -48,8 +48,7 @@ const sortedPosts = posts.sort(
 								href={`${import.meta.env.BASE_URL}/topics/${topic}`}
 							>
 								{topic}
-							</a>
-							{i < length - 1 && ", "}
+							</a>{i < length - 1 && ", "}
 						</>
 					))
 				}
