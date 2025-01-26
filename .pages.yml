@@ -2,7 +2,7 @@ media:
   input: apps/www/public
   output: apps/www/public
 content:
-  - name: docs/writings
+  - name: writings
     label: Writings
     type: collection
     path: docs/writings
