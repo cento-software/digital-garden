@@ -1,3 +1,36 @@
 media:
   input: apps/www/public
   output: apps/www/public
+content:
+  - name: docs/writings
+    label: Writings
+    type: collection
+    path: docs/writings
+    filename: "{primary}.md"
+    view:
+      fields:
+        - title
+        - pubDate
+      primary: title
+      sort:
+        - title
+        - pubDate
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: string
+      - name: pubDate
+        label: Publication date
+        type: string
+      - name: heroImage
+        label: Hero image
+        type: string
+      - name: topics
+        label: Topics
+        type: array
+      - name: body
+        label: Body
+        type: rich-text
