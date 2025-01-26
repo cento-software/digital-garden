@@ -51,9 +51,13 @@ eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
 blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices
 tincidunt arcu. Id cursus metus aliquam eleifend mi.
 
+# <<<<<<< HEAD Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+
 Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus
 imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu
 cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt
 dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat
 sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.
 Egestas integer eget aliquet nibh praesent tristique magna.
+
+>>>>>>> 1d4366e8b38d5f0c35cf80dc0717fef11fef60f2

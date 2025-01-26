@@ -30,6 +30,7 @@ content:
         type: image
         options:
           input: apps/www/public
+          output: ""
           extensions:
             - jpg
             - jpeg
