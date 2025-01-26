@@ -29,7 +29,7 @@ content:
         label: Hero image
         type: image
         options:
-          path: apps/www/public
+          input: apps/www/public
           extensions:
             - jpg
             - jpeg
