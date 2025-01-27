@@ -37,7 +37,9 @@ export async function getStaticPaths() {
 					({ id, relativeLinks }) =>
 						id !== post.id &&
 						relativeLinks.some(
-							(relativeLink) => relativeLink.href === post.id,
+							(relativeLink) =>
+								relativeLink.href ===
+								`/${import.meta.env.BASE_URL}/writings/${post.id}`,
 						),
 				),
 			},
