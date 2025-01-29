@@ -33,19 +33,19 @@ export async function getStaticPaths() {
 							topics?.includes(topic),
 						),
 				),
-				mentions: post.relativeLinks.map((anchor) => {
-					if (
+				mentions: post.relativeLinks
+					.filter((anchor) =>
 						anchor.href.startsWith(
 							`${import.meta.env.BASE_URL}/writings/`,
-						)
-					) {
+						),
+					)
+					.map((anchor) => {
 						const id = anchor.href.slice(
 							`${import.meta.env.BASE_URL}/writings/`.length,
 						);
 
 						return posts.find((p) => p.id === id);
-					}
-				}),
+					}),
 				mentionedBy: postsWithRelativeLinks.filter(
 					({ id, relativeLinks }) =>
 						id !== post.id &&
